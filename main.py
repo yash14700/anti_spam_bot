@@ -10,7 +10,8 @@ import re
 #and making additive and removal changes
 
 groups = dict(dict())
-spamtexts = {"Essay Writing", "Essay Writer"}
+spamusers = set()
+spamtexts = {"Essay Writing", "Essay Writer", "admission essays", "Writing Service"}
 run = True
 def update_groups(groups):
     groupsjson = requests.get("https://api.groupme.com/v3/groups?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh").json()
@@ -20,15 +21,20 @@ def update_groups(groups):
         member_dict = dict()
         for member in group["members"]:
             member_dict[member["user_id"]] = member["id"]
+            if member["user_id"] in spamusers:
+                response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+
         groups[group_id] = member_dict
 
 def spamcheck(groups, spamtexts):
     for group_id in groups:
         messagesjson = requests.get("https://api.groupme.com/v3/groups/" + str(group_id) + "/messages?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh").json()
+        print(json.dumps(messagesjson, indent=4 ))
         for message in messagesjson["response"]["messages"]:
             for spamtext in spamtexts:
-                if spamtext in message["text"] and (message["user_id"] in groups[group_id]):
+                if spamtext in message["text"] and ("http" in message["text"]) and (message["user_id"] in groups[group_id]):
                     response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+
 
 
 while(run):
