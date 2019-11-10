@@ -18,19 +18,19 @@ def update_groups(groups):
     # print(json.dumps(groupsjson, indent = 4))
     if "response" in groupsjson:
         for group in groupsjson["response"]:
-            group_id = group["group_id"]
+            group_id = group["group_id"].encode('ascii','ignore')
             member_dict = dict()
             for member in group["members"]:
                 member_dict[member["user_id"]] = member["id"]
                 if member["user_id"] in spamusers:
-                    response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+                    response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + member["id"] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
 
             groups[group_id] = member_dict
 
 def spamcheck(groups, spamtexts, spamusers, userfile):
     for group_id in groups:
         messagesjson = requests.get("https://api.groupme.com/v3/groups/" + str(group_id) + "/messages?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh").json()
-        print(json.dumps(messagesjson, indent=4 ))
+        # print(json.dumps(messagesjson, indent=4 ))
         if "response" in messagesjson:
             for message in messagesjson["response"]["messages"]:
                 for spamtext in spamtexts:
@@ -38,21 +38,25 @@ def spamcheck(groups, spamtexts, spamusers, userfile):
                         response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
                         spamusers.add(message["user_id"])
                         uf = open(userfile,"a")
-                        f.write("\n" + message["user_id"])
+                        uf.write("\n" + message["user_id"])
                         uf.close()
 
 
 def update_data(spamtexts, spamusers, textfile, userfile):
     with open(textfile) as tf:
-        spamtexts = set(tf.readlines())
+        wordlist = tf.readlines()
+        for word in wordlist:
+            spamtexts.add(str(word[:-2]))
     with open(userfile) as uf:
-        spamusers = set(uf.readlines())
+        wordlist = uf.readlines()
+        for word in wordlist:
+            spamusers.add(str(word[:-1]))
 
-
+textfile = "badtexts.txt"
+userfile = "badusers.txt"
 update_data(spamtexts, spamusers, textfile, userfile)
+print(spamusers)
 while(run):
-    textfile = "badtexts.txt"
-    userfile = "badusers.txt"
     update_groups(groups)
     spamcheck(groups, spamtexts, spamusers, userfile)
     time.sleep(1)
