@@ -11,63 +11,48 @@ import re
 
 groups = dict(dict())
 spamusers = set()
-spamtexts = {"Essay Writing", "Essay Writer", "admission essays", "Writing Service"}
+spamtexts = set()
 run = True
 def update_groups(groups):
     groupsjson = requests.get("https://api.groupme.com/v3/groups?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh").json()
     # print(json.dumps(groupsjson, indent = 4))
-    for group in groupsjson["response"]:
-        group_id = group["group_id"]
-        member_dict = dict()
-        for member in group["members"]:
-            member_dict[member["user_id"]] = member["id"]
-            if member["user_id"] in spamusers:
-                response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+    if "response" in groupsjson:
+        for group in groupsjson["response"]:
+            group_id = group["group_id"]
+            member_dict = dict()
+            for member in group["members"]:
+                member_dict[member["user_id"]] = member["id"]
+                if member["user_id"] in spamusers:
+                    response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
 
-        groups[group_id] = member_dict
+            groups[group_id] = member_dict
 
-def spamcheck(groups, spamtexts):
+def spamcheck(groups, spamtexts, spamusers, userfile):
     for group_id in groups:
         messagesjson = requests.get("https://api.groupme.com/v3/groups/" + str(group_id) + "/messages?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh").json()
         print(json.dumps(messagesjson, indent=4 ))
-        for message in messagesjson["response"]["messages"]:
-            for spamtext in spamtexts:
-                if spamtext in message["text"] and ("http" in message["text"]) and (message["user_id"] in groups[group_id]):
-                    response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+        if "response" in messagesjson:
+            for message in messagesjson["response"]["messages"]:
+                for spamtext in spamtexts:
+                    if spamtext in message["text"] and ("http" in message["text"]) and (message["user_id"] in groups[group_id]):
+                        response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+                        spamusers.add(message["user_id"])
+                        uf = open(userfile,"a")
+                        f.write("\n" + message["user_id"])
+                        uf.close()
 
 
+def update_data(spamtexts, spamusers, textfile, userfile):
+    with open(textfile) as tf:
+        spamtexts = set(tf.readlines())
+    with open(userfile) as uf:
+        spamusers = set(uf.readlines())
 
+
+update_data(spamtexts, spamusers, textfile, userfile)
 while(run):
+    textfile = "badtexts.txt"
+    userfile = "badusers.txt"
     update_groups(groups)
-    spamcheck(groups, spamtexts)
+    spamcheck(groups, spamtexts, spamusers, userfile)
     time.sleep(1)
-"""
-
-tok = "Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh"
-group_id = "groups/50093480/"
-task = "messages"
-messageurl = "https://api.groupme.com/v3/" + group_id + task + "?token=" + tok
-memberurl  = "https://api.groupme.com/v3/groups/50093480?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh"
-removeurl = "https://api.groupme.com/v3/groups/50093480/members/"
-
-
-while(true):
-    memberjson = requests.get(memberurl).json()
-    members = memberjson["response"]["members"]
-
-    member_dict = dict()
-    for member in members:
-        member_dict[member["user_id"]] = member["id"]
-
-    messagejson = requests.get(messageurl).json()
-    messages = messagejson["response"]["messages"]
-
-    for message in messages:
-        for spam in spamtexts:
-            if (spam in message["text"]) and (message["user_id"] in member_dict):
-                url = removeurl + member_dict[message["user_id"]] + "/remove" + "?token=" + tok
-                response = requests.post(url)
-                print(response)
-
-    time.sleep(3)
-"""
