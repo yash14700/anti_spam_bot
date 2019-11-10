@@ -1,0 +1,433 @@
+{
+    "meta": {
+        "code": 200
+    }, 
+    "response": {
+        "count": 1545, 
+        "messages": [
+            {
+                "user_id": "19906036", 
+                "attachments": [], 
+                "source_guid": "893299AF-AB5C-4076-8EED-04AB9B9A2354", 
+                "text": "so if someone wanted to join they could just ask someone in the groupme ", 
+                "created_at": 1573325376, 
+                "sender_id": "19906036", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/750x750.jpeg.1baa6116d8a840dd88fad91d233cf420", 
+                "group_id": "50093480", 
+                "id": "157332537635044077", 
+                "name": "Alex Shulman"
+            }, 
+            {
+                "user_id": "19906036", 
+                "attachments": [], 
+                "source_guid": "5634CE68-2B77-4633-B5BB-A94B305F20E8", 
+                "text": "members already in the group can add people ", 
+                "created_at": 1573325353, 
+                "sender_id": "19906036", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/750x750.jpeg.1baa6116d8a840dd88fad91d233cf420", 
+                "group_id": "50093480", 
+                "id": "157332535305266297", 
+                "name": "Alex Shulman"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "member": {
+                            "nickname": "Yash Ramchandani 2", 
+                            "id": 61272225
+                        }, 
+                        "role": "admin", 
+                        "user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }
+                    }, 
+                    "type": "group.role_change_admin"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "784dc4e0e5440137b16222000a96548a", 
+                "text": "Rushil Kasetty has made Yash Ramchandani 2 an admin.", 
+                "created_at": 1573320595, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157332059579864320", 
+                "name": "GroupMe"
+            }, 
+            {
+                "user_id": "58491166", 
+                "attachments": [], 
+                "source_guid": "android-aa3fd8fd-33fb-42c9-8ff3-3e852d1755bd", 
+                "text": "Yeah sure", 
+                "created_at": 1573320580, 
+                "sender_id": "58491166", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [
+                    "61272225"
+                ], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/1224x1632.jpeg.0de1c102657749e9bd7c7886bbaa28d1", 
+                "group_id": "50093480", 
+                "id": "157332058047336297", 
+                "name": "Rushil Kasetty"
+            }, 
+            {
+                "user_id": "61272225", 
+                "attachments": [
+                    {
+                        "user_ids": [
+                            "58491166"
+                        ], 
+                        "loci": [
+                            [
+                                0, 
+                                15
+                            ]
+                        ], 
+                        "type": "mentions"
+                    }
+                ], 
+                "source_guid": "1da4d34a-3cc5-43dd-a24b-d3e967f1b2d3", 
+                "text": "@Rushil Kasetty can you make me admin so I can get this bot working", 
+                "created_at": 1573320573, 
+                "sender_id": "61272225", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/200x200.jpeg.7c2a835269cc44efb0a241b01ae3d193", 
+                "group_id": "50093480", 
+                "id": "157332057315808066", 
+                "name": "Yash Ramchandani 2"
+            }, 
+            {
+                "user_id": "61272225", 
+                "attachments": [], 
+                "source_guid": "775ad4e4-3bb9-4bff-9799-ba7d2783f341", 
+                "text": "@Rus", 
+                "created_at": 1573320560, 
+                "sender_id": "61272225", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/200x200.jpeg.7c2a835269cc44efb0a241b01ae3d193", 
+                "group_id": "50093480", 
+                "id": "157332056066757154", 
+                "name": "Yash Ramchandani 2"
+            }, 
+            {
+                "user_id": "61272225", 
+                "attachments": [], 
+                "source_guid": "d3e9f5bb-463a-42c4-94f4-2bdf9d88c639", 
+                "text": "Wait, lemme see if I can get a bot that removes anyone who writes that post. \nGimme till tom morning\nWe can open sharing after that", 
+                "created_at": 1573320439, 
+                "sender_id": "61272225", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/200x200.jpeg.7c2a835269cc44efb0a241b01ae3d193", 
+                "group_id": "50093480", 
+                "id": "157332043983885947", 
+                "name": "Yash Ramchandani 2"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "type": "private", 
+                        "user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }
+                    }, 
+                    "type": "group.type_change"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "e734ba00e4e30137f8a922000b78906f", 
+                "text": "Rushil Kasetty changed group type to \"open\"", 
+                "created_at": 1573279120, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157327912067884584", 
+                "name": "GroupMe"
+            }, 
+            {
+                "user_id": "58491166", 
+                "attachments": [], 
+                "source_guid": "android-606abd70-2f29-41bf-9569-fa0babdb5f12", 
+                "text": "Guess I had to turn off group sharing too? Maybe I'll open it back up with group sharing off", 
+                "created_at": 1573279111, 
+                "sender_id": "58491166", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/1224x1632.jpeg.0de1c102657749e9bd7c7886bbaa28d1", 
+                "group_id": "50093480", 
+                "id": "157327911118632792", 
+                "name": "Rushil Kasetty"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }
+                    }, 
+                    "type": "group.unshared"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "cb61ccc0e4e30137f4e322000aa40184", 
+                "text": "Rushil Kasetty disabled group sharing.", 
+                "created_at": 1573279073, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [
+                    "16200236", 
+                    "38769047", 
+                    "43164736"
+                ], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157327907399804020", 
+                "name": "GroupMe"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "type": "closed", 
+                        "user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }
+                    }, 
+                    "type": "group.type_change"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "cb610ee0e4e3013727fa22000bf8e41a", 
+                "text": "Rushil Kasetty changed group type to \"closed\"", 
+                "created_at": 1573279073, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157327907399312792", 
+                "name": "GroupMe"
+            }, 
+            {
+                "user_id": "58491166", 
+                "attachments": [], 
+                "source_guid": "android-3aaec79d-a405-481c-8cf8-6db6ba8f7cf4", 
+                "text": "I just made it closed lol wtf", 
+                "created_at": 1573279063, 
+                "sender_id": "58491166", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/1224x1632.jpeg.0de1c102657749e9bd7c7886bbaa28d1", 
+                "group_id": "50093480", 
+                "id": "157327906364536836", 
+                "name": "Rushil Kasetty"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "remover_user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }, 
+                        "removed_user": {
+                            "nickname": "Dulcine Barretto", 
+                            "id": 71547550
+                        }
+                    }, 
+                    "type": "membership.notifications.removed"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "be141500e4e301370aa622000b788b89", 
+                "text": "Rushil Kasetty removed Dulcine Barretto from the group.", 
+                "created_at": 1573279051, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157327905167838066", 
+                "name": "GroupMe"
+            }, 
+            {
+                "user_id": "29065564", 
+                "attachments": [], 
+                "source_guid": "A965D9A0-D21A-49B3-8189-077069219A19", 
+                "text": "It\u2019s just a bot", 
+                "created_at": 1573279046, 
+                "sender_id": "29065564", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/750x744.jpeg.8a462bb4c21d4f07b489b5f19893f870", 
+                "group_id": "50093480", 
+                "id": "157327904611933105", 
+                "name": "Alex Rodriguez"
+            }, 
+            {
+                "user_id": "43164736", 
+                "attachments": [], 
+                "source_guid": "C9214188-B89C-4D6E-88EA-DE3A6C8BF5A8", 
+                "text": "What the hells going on here", 
+                "created_at": 1573279024, 
+                "sender_id": "43164736", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/748x748.jpeg.5820572dcbcd4c4e9622f0c3036fddad", 
+                "group_id": "50093480", 
+                "id": "157327902481632792", 
+                "name": "Nathan Day"
+            }, 
+            {
+                "user_id": "71547550", 
+                "attachments": [
+                    {
+                        "url": "https://i.groupme.com/570x606.png.699161196e3046f59e4cb7bf6378e3e0", 
+                        "type": "image"
+                    }
+                ], 
+                "source_guid": "5a31e116a8e04d46dc039b9299f786f6", 
+                "text": "http://essayquake.ml - Get Complete Help with College Essay Writing", 
+                "created_at": 1573279009, 
+                "sender_id": "71547550", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/1491x987.jpeg.79d256a0834e49f8926251d5fdc28eef", 
+                "group_id": "50093480", 
+                "id": "157327900992763105", 
+                "name": "Dulcine Barretto"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "user": {
+                            "nickname": "Dulcine Barretto", 
+                            "id": 71547550
+                        }
+                    }, 
+                    "type": "membership.announce.joined"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "77872880e4e30137708022000ab9dacd", 
+                "text": "Dulcine Barretto has joined the group", 
+                "created_at": 1573278933, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157327893331422293", 
+                "name": "GroupMe"
+            }, 
+            {
+                "event": {
+                    "data": {
+                        "type": "closed", 
+                        "user": {
+                            "nickname": "Rushil Kasetty", 
+                            "id": 58491166
+                        }
+                    }, 
+                    "type": "group.type_change"
+                }, 
+                "user_id": "system", 
+                "attachments": [], 
+                "source_guid": "4942de00e4cd0137225c22000b6d8861", 
+                "text": "Rushil Kasetty changed group type to \"closed\"", 
+                "created_at": 1573269406, 
+                "sender_id": "system", 
+                "sender_type": "system", 
+                "system": true, 
+                "favorited_by": [
+                    "16200236", 
+                    "19906036", 
+                    "23846640"
+                ], 
+                "platform": "gm", 
+                "avatar_url": null, 
+                "group_id": "50093480", 
+                "id": "157326940676347154", 
+                "name": "GroupMe"
+            }, 
+            {
+                "user_id": "58491166", 
+                "attachments": [], 
+                "source_guid": "android-714424b0-20dd-442a-ba38-3bca7df5366e", 
+                "text": "Aight", 
+                "created_at": 1573269373, 
+                "sender_id": "58491166", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/1224x1632.jpeg.0de1c102657749e9bd7c7886bbaa28d1", 
+                "group_id": "50093480", 
+                "id": "157326937386197154", 
+                "name": "Rushil Kasetty"
+            }, 
+            {
+                "user_id": "19906036", 
+                "attachments": [], 
+                "source_guid": "8C3E31E8-7F81-4BA2-ADFB-FFD6B270672A", 
+                "text": "quick", 
+                "created_at": 1573268997, 
+                "sender_id": "19906036", 
+                "sender_type": "user", 
+                "system": false, 
+                "favorited_by": [], 
+                "platform": "gm", 
+                "avatar_url": "https://i.groupme.com/750x750.jpeg.1baa6116d8a840dd88fad91d233cf420", 
+                "group_id": "50093480", 
+                "id": "157326899727422293", 
+                "name": "Alex Shulman"
+            }
+        ]
+    }
+}
