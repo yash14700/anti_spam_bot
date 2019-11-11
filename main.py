@@ -34,12 +34,13 @@ def spamcheck(groups, spamtexts, spamusers, userfile):
         if "response" in messagesjson:
             for message in messagesjson["response"]["messages"]:
                 for spamtext in spamtexts:
-                    if spamtext in message["text"] and ("http" in message["text"]) and (message["user_id"] in groups[group_id]):
-                        response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
-                        spamusers.add(message["user_id"])
-                        uf = open(userfile,"a")
-                        uf.write("\n" + message["user_id"])
-                        uf.close()
+                    if message["text"] != None and groups[group_id] != None:
+                        if spamtext in message["text"] and ("http" in message["text"]) and (message["user_id"] in groups[group_id]):
+                            response = requests.post("https://api.groupme.com/v3/groups/" + str(group_id) + "/members/" + groups[group_id][message["user_id"]] + "/remove" + "?token=Qd6uMeO92kqntymFmJ3czFgY9ul0VGy6CVMRmiPh")
+                            spamusers.add(message["user_id"])
+                            uf = open(userfile,"a")
+                            uf.write("\n" + message["user_id"])
+                            uf.close()
 
 
 def update_data(spamtexts, spamusers, textfile, userfile):
@@ -50,7 +51,12 @@ def update_data(spamtexts, spamusers, textfile, userfile):
     with open(userfile) as uf:
         wordlist = uf.readlines()
         for word in wordlist:
-            spamusers.add(str(word[:-1]))
+            if word[-1] == "\r" or word[-1] == "\n":
+                spamusers.add(str(word[:-1]))
+            else:
+                spamusers.add(str(word))
+    tf.close()
+    uf.close()
 
 textfile = "badtexts.txt"
 userfile = "badusers.txt"
